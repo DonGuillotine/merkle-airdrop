@@ -27,10 +27,6 @@ function generateMerkleRoot() {
   });
 }
 
-generateMerkleRoot()
-  .then((root) => {
-    console.log('Merkle Root:', root);
-  })
-  .catch((error) => {
-    console.error('Error generating Merkle root:', error);
-  });
+module.exports = {
+  generateMerkleRoot
+};
