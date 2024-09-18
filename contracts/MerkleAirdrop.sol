@@ -26,13 +26,17 @@ contract MerkleAirdrop is ReentrancyGuard, Ownable {
         require(!hasClaimed[msg.sender], "Address has already claimed");
         require(baycNFT.balanceOf(msg.sender) > 0, "Must own a BAYC NFT to claim");
 
-        bytes32 node = keccak256(abi.encodePacked(msg.sender, amount));
-        require(MerkleProof.verify(merkleProof, merkleRoot, node), "Invalid merkle proof");
+        bytes32 leaf = keccak256(abi.encodePacked(msg.sender, amount));
+        require(MerkleProof.verify(merkleProof, merkleRoot, leaf), "Invalid merkle proof");
 
         hasClaimed[msg.sender] = true;
         require(token.transfer(msg.sender, amount), "Token transfer failed");
 
         emit TokensClaimed(msg.sender, amount);
+    }
+
+    function getLeaf(address account, uint256 amount) public pure returns (bytes32) {
+        return keccak256(abi.encodePacked(account, amount));
     }
 
     function updateMerkleRoot(bytes32 _merkleRoot) external onlyOwner {
