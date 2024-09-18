@@ -2,11 +2,13 @@ const { MerkleTree } = require('merkletreejs');
 const keccak256 = require('keccak256');
 const csv = require('csv-parser');
 const fs = require('fs');
+const path = require('path');
 
 function generateMerkleRoot() {
   return new Promise((resolve, reject) => {
     const leaves = [];
-    fs.createReadStream('merged_bayc_and_mockaroo.csv')
+    const csvFilePath = path.join(__dirname, 'merged_bayc_and_mockaroo.csv');
+    fs.createReadStream(csvFilePath)
       .pipe(csv())
       .on('data', (row) => {
         const address = row.Address;
