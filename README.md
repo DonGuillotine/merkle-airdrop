@@ -9,7 +9,7 @@ This project implements a Merkle Airdrop smart contract using Hardhat, with the 
 ## Features
 
 1. **ERC20 Token Deployment**:  
-   I created my own ERC20 token which is deployed on the Sepolia testnet for the purpose of this airdrop.
+   I created my own ERC20 token which is deployed on the Lisk Sepolia testnet for the purpose of this airdrop.
 
 2. **Merkle Airdrop Contract**:  
    The contract accepts the ERC20 token address and Merkle root as constructor parameters. It ensures that only users who own a **BAYC NFT** (verified via the BAYC smart contract on Ethereum mainnet) can claim tokens, and each user can claim their airdrop only once.
@@ -44,8 +44,8 @@ This project implements a Merkle Airdrop smart contract using Hardhat, with the 
 - **Hardhat** for development and testing
 - **ethers.js** for interacting with Ethereum
 - **Merkle.js** for generating the Merkle tree
-- **Sepolia Testnet** for deploying the ERC20 token and airdrop contract
-- **Metamask** with Sepolia Testnet configured and test ETH for gas fees
+- **Lisk Sepolia Testnet** for deploying the ERC20 token and airdrop contract
+- **Metamask** with Lisk Sepolia Testnet configured and test ETH for gas fees
 - **BoredApeYachtClub NFT contract** address: `0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d`
 
 ## Setup
@@ -75,9 +75,9 @@ This project implements a Merkle Airdrop smart contract using Hardhat, with the 
    - The output will include the Merkle root and the proofs for each address.
 
 5. **Deploy the contracts**:
-   - Deploy the ERC20 token and airdrop contracts to the Sepolia testnet using the deployment script:
+   - Deploy the ERC20 token and airdrop contracts to the Lisk Sepolia testnet using the deployment script:
      ```bash
-     npx hardhat run scripts/deploy.js --network sepolia
+     npx hardhat run scripts/deploy.js --network lisk-sepolia
      ```
 
 6. **Testing**:
@@ -126,15 +126,15 @@ The following test cases have been implemented in the unit tests:
 - **Solidity**: Smart contract programming language
 - **ethers.js**: Ethereum library for interacting with smart contracts
 - **Merkle.js**: Library for generating Merkle trees and proofs
-- **Sepolia Testnet**: Ethereum testnet for deployment
+- **Lisk Sepolia Testnet**: Ethereum testnet for deployment
 - **Chai**: Assertion library for unit testing
 
 ## Deployment
 
-The smart contracts are deployed on the **Sepolia Testnet**. You can interact with the deployed contracts via a front-end or using Hardhat tasks.
+The smart contracts are deployed on the **LISK Sepolia Testnet**. You can interact with the deployed contracts via a front-end or using Hardhat tasks.
 
-- **ERC20 Token Address**: https://sepolia.etherscan.io/address/0x8B8e531d86f39B6D4F26A623793A030d8A79ed14#writeContract
-- **Merkle Airdrop Contract Address**: https://sepolia.etherscan.io/address/0x924698555d528356DF5f6ECdAA39a0904a707b1a#writeContract
+- **ERC20 Token Address**: https://sepolia-blockscout.lisk.com/address/0xe09D52343c649d113639B264Ba5E0F0aC57AB0C0?tab=write_contract
+- **Merkle Airdrop Contract Address**: https://sepolia-blockscout.lisk.com/address/0xdE45a331016950106A2bf7b0136c2EF48D1B29E7?tab=write_contract
 
 ## Contributing
 
